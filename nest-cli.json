@@ -1,8 +1,41 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src",
+  "sourceRoot": "apps/grpc-microservice-connection-example/src",
   "compilerOptions": {
-    "deleteOutDir": true
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/grpc-microservice-connection-example/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/grpc-microservice-connection-example",
+  "projects": {
+    "grpc-microservice-connection-example": {
+      "type": "application",
+      "root": "apps/grpc-microservice-connection-example",
+      "entryFile": "main",
+      "sourceRoot": "apps/grpc-microservice-connection-example/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/grpc-microservice-connection-example/tsconfig.app.json"
+      }
+    },
+    "lq-auth": {
+      "type": "application",
+      "root": "apps/lq-auth",
+      "entryFile": "main",
+      "sourceRoot": "apps/lq-auth/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/lq-auth/tsconfig.app.json"
+      }
+    },
+    "lq-payments": {
+      "type": "application",
+      "root": "apps/lq-payments",
+      "entryFile": "main",
+      "sourceRoot": "apps/lq-payments/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/lq-payments/tsconfig.app.json"
+      }
+    }
   }
 }
